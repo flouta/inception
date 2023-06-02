@@ -1,0 +1,5 @@
+version: '3'
+services:
+  Mariabd:
+    build: ./requirements/mariadb
+
