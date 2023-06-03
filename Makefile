@@ -41,3 +41,7 @@ logs:
 	@echo "\033[38;5;208mShow the logs of the Docker Compose services\033[0m"
 	$(COMPOSE) -f $(COMPOSE_FILE) logs -f
 
+.PHONY: clean
+clean:
+	@echo "\033[1;32mCleaning up ...\033[0m"
+	$(COMPOSE) -f $(COMPOSE_FILE) down --volumes --rmi all --remove-orphans
