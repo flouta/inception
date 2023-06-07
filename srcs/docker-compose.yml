@@ -1,7 +1,5 @@
 version: '3'
 services:
     mariadb:
-        image: mariadb
-        volumes:
-            - /Users/flouta/Desktop/data:/var/lib/mysql
-        restart: always
+        build: requirements/mariadb
+        restart: on-failure

@@ -1,0 +1,12 @@
+FROM alpine:3.17
+
+RUN apk update &&  apk add mariadb mariadb-client
+
+
+RUN mariadb-install-db
+WORKDIR /app
+ 
+
+EXPOSE 3306
+
+CMD ["mysqld", "--user=mysql"]

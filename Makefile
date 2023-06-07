@@ -5,15 +5,11 @@ COMPOSE := docker-compose
 
 COMPOSE_FILE := srcs/docker-compose.yml
 
-.PHONY: build
-build:
-	@echo "\033[1;32mBuilding the Docker Compose services\033[0m"
-	$(COMPOSE) -f $(COMPOSE_FILE) build
 
 .PHONY: up
 up:
 	@echo "\033[1;32mCreating and Starting the Docker Compose services\033[0m"
-	$(COMPOSE) -f $(COMPOSE_FILE) up -d
+	$(COMPOSE) -f $(COMPOSE_FILE) up -d --build
 
 .PHONY: down
 down:
