@@ -1,7 +1,5 @@
--- Create a database
 CREATE DATABASE mydatabase;
 
--- Create users and grant privileges
 CREATE USER 'user1'@'localhost' IDENTIFIED BY 'password1';
 GRANT ALL PRIVILEGES ON mydatabase.* TO 'user1'@'localhost';
 
