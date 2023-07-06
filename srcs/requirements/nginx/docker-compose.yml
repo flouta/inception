@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8084:443
+    depends_on:
+      - wordpress
+    networks:
+      - frontend
+
+  wordpress:
+    image: wordpress:latest
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DB_USER=root
+      - WORDPRESS_DB_PASSWORD=password
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - frontend    
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - frontend
+
+volumes:
+  wordpress:
+  db_data:
+networks:
+  frontend:
+
