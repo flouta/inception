@@ -20,3 +20,4 @@ RUN chmod +x /tools/wp_script.sh
 
 ENTRYPOINT ["/tools/wp_script.sh"]
 
+CMD ["php-fpm81", "-F"]
