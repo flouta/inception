@@ -1,16 +1,22 @@
 #!/bin/sh
 
-mkdir /var/www/
-mkdir /var/www/html
-
 cp /wordpress/wp-config-sample.php /wordpress/wp-config.php
 
 # Configure WordPress to connect to the MariaDB database
-wp config create --allow-root --dbname="${DATABASE_NAME}" \
-    --dbuser="${DB_USER}" \
-    --dbpass="${DB_USER_PASS}" \
-    --dbhost="${DATABASE_HOST}" \
-    --path="/wordpress"
+# wp core config --allow-root --dbname="${DATABASE_NAME}" \
+#     --dbuser="${DB_USER}" \
+#     --dbpass="${DB_USER_PASS}" \
+#     --dbhost="${DATABASE_HOST}" \
+#     --path="/wordpress"
+
+sed -i "s/DB_NAME.*/DB_NAME', '${DATABASE_NAME}');/" /wordpress/wp-config.php
+sed -i "s/DB_USER.*/DB_USER', '${DB_USER}');/" /wordpress/wp-config.php
+sed -i "s/DB_PASSWORD.*/DB_PASSWORD', '${DB_USER_PASS}');/" /wordpress/wp-config.php
+sed -i "s/DB_HOST.*/DB_HOST', '${DATABASE_HOST}');/" /wordpress/wp-config.php
+
+
+
+chmod 600 wp-config.php
 
 # Install WordPress
 wp core install --allow-root --url="${WP_URL}" \
@@ -30,4 +36,5 @@ sed -i 's|listen = /run/php/php8.1-fpm.sock|listen = 9000|g' /etc/php81/php-fpm.
 sed -i 's|listen = 127.0.0.1:9000|listen = 0.0.0.0:9000|g' /etc/php81/php-fpm.d/www.conf
 
 exec "$@"
+
 
