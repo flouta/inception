@@ -14,7 +14,6 @@ RUN wp core download
 
 RUN mkdir -p ./tools
 
-
 COPY tools/wp_script.sh /tools/wp_script.sh
 
 RUN chmod +x /tools/wp_script.sh
