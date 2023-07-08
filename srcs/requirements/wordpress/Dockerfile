@@ -2,7 +2,7 @@ FROM alpine:3.17
 
 WORKDIR /wordpress
 
-RUN apk add php php-phar php-openssl php-fpm mysql-client php-mysqli
+RUN apk add php php-phar php-openssl php-iconv php-fpm mysql-client php-mysqli
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 

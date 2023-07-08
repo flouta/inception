@@ -1,30 +1,25 @@
 #!/bin/sh
 
-cp /wordpress/wp-config-sample.php /wordpress/wp-config.php
+#cp /wordpress/wp-config-sample.php /wordpress/wp-config.php
 
 # Configure WordPress to connect to the MariaDB database
-# wp core config --allow-root --dbname="${DATABASE_NAME}" \
-#     --dbuser="${DB_USER}" \
-#     --dbpass="${DB_USER_PASS}" \
-#     --dbhost="${DATABASE_HOST}" \
-#     --path="/wordpress"
+ wp core config --dbname="${DATABASE_NAME}" \
+     --dbuser="${DB_USER}" \
+     --dbpass="${DB_USER_PASS}" \
+     --dbhost="${DATABASE_HOST}"
 
-sed -i "s/DB_NAME.*/DB_NAME', '${DATABASE_NAME}');/" /wordpress/wp-config.php
-sed -i "s/DB_USER.*/DB_USER', '${DB_USER}');/" /wordpress/wp-config.php
-sed -i "s/DB_PASSWORD.*/DB_PASSWORD', '${DB_USER_PASS}');/" /wordpress/wp-config.php
-sed -i "s/DB_HOST.*/DB_HOST', '${DATABASE_HOST}');/" /wordpress/wp-config.php
-
-
-
-chmod 600 wp-config.php
+#sed -i "s/DB_NAME.*/DB_NAME', '${DATABASE_NAME}');/" /wordpress/wp-config.php
+#sed -i "s/DB_USER.*/DB_USER', '${DB_USER}');/" /wordpress/wp-config.php
+#sed -i "s/DB_PASSWORD.*/DB_PASSWORD', '${DB_USER_PASS}');/" /wordpress/wp-config.php
+#sed -i "s/DB_HOST.*/DB_HOST', '${DATABASE_HOST}');/" /wordpress/wp-config.php
 
 # Install WordPress
-wp core install --allow-root --url="${WP_URL}" \
+wp core install --url="${WP_URL}" \
     --title="${WP_TITLE}" \
     --admin_user="${ADMIN_USER}" \
     --admin_password="${ADMIN_USER_PASS}" \
     --admin_email="${ADMIN_USER_EMAIL}" \
-    --path="/wordpress"
+    --skip-email
 
 # # Create new user in WordPress
 # wp user create "${WP_USER}" \

@@ -3,7 +3,7 @@ FROM alpine:3.17
 RUN apk update &&  apk add mariadb mariadb-client && apk add gettext
 
 #copy mariadb config file
-COPY conf/my.cnf /etc/mysql/my.cnf
+COPY conf/my.cnf /etc/my.cnf.d/mariadb-server.cnf
 
 RUN mariadb-install-db
 
