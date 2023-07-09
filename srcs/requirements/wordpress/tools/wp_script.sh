@@ -21,10 +21,11 @@ wp core install --url="${WP_URL}" \
     --admin_email="${ADMIN_USER_EMAIL}" \
     --skip-email
 
-# # Create new user in WordPress
-# wp user create "${WP_USER}" \
-#     --user_pass="${WP_USER_PASSWORD}" \
-#     --role=author
+# Create new user in WordPress
+wp user create "${WP_USER}"  "${WP_USER_EMAIL}" \
+    --user_pass="${WP_USER_PASSWORD}" \
+    --role=author
+
 
 # Modifies the PHP-FPM configuration file to change the listen directive to use port 9000 instead of a Unix socket
 sed -i 's|listen = /run/php/php8.1-fpm.sock|listen = 9000|g' /etc/php81/php-fpm.d/www.conf

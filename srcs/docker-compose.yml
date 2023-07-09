@@ -44,13 +44,13 @@ volumes:
     mariadb_data:
         driver: local
         driver_opts:
-            device: /Users/flouta/Desktop/1337/db_data1
+            device: /Users/flouta/Desktop/1337/mariadb1
             o: bind
             type: none
     wordpress_files:
         driver: local
         driver_opts:
-            device: /Users/flouta/Desktop/1337/wp_files_data1
+            device: /Users/flouta/Desktop/1337/wordpress
             o: bind
             type: none
 
