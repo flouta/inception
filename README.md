@@ -14,3 +14,6 @@ This allows for the realization of the various benefits of Containers e.g. appli
 
 In other words, while Virtual Machines abstract the entire hardware server, Containers abstract the Operating System kernel. 
 This is a whole different approach to virtualization and results in a much faster and more lightweight instances.
+
+
+![docker vs vm](https://cloudacademy.com/wp-content/uploads/2019/10/Docker-vs..png)
