@@ -1,5 +1,6 @@
 # inception
-##What is Docker?
+## What is Docker?
+
 Docker is an open-source project that offers a software development solution known as containers. 
 To understand Docker, you need to know what containers are. According to Docker, 
 a container is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it.
