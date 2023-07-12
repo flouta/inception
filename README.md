@@ -1,19 +1,9 @@
 # inception
 ## What is Docker?
 
-Docker is an open-source project that offers a software development solution known as containers. 
-To understand Docker, you need to know what containers are. According to Docker, 
-a container is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it.
+Docker is an open-source project that simplifies software development with containers. Containers are self-contained packages of software that can be executed independently. They include everything needed to run the software. Docker works on both Windows and Linux systems and can even run within a virtual machine if needed. Its main purpose is to enable the execution of microservice applications in a distributed architecture.
 
-Containers are platform-independent and hence Docker can run across both Windows and Linux-based platforms.
-In fact, Docker can also be run within a virtual machine if there arises a need to do so.
-The main purpose of Docker is that it lets you run microservice applications in a distributed architecture.
-
-When compared to Virtual machines, the Docker platform moves up the abstraction of resources from the hardware level to the Operating System level. 
-This allows for the realization of the various benefits of Containers e.g. application portability, infrastructure separation, and self-contained microservices. 
-
-In other words, while Virtual Machines abstract the entire hardware server, Containers abstract the Operating System kernel. 
-This is a whole different approach to virtualization and results in a much faster and more lightweight instances.
+Unlike virtual machines that abstract the entire hardware server, Docker abstracts the operating system kernel. This approach provides advantages such as application portability, infrastructure separation, and self-contained microservices. In summary, Docker offers a faster and lightweight alternative to virtualization by focusing on the essentials needed to run software effectively.
 
 
 ![docker vs vm](https://cloudacademy.com/wp-content/uploads/2019/10/Docker-vs..png)
